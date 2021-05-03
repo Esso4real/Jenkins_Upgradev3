@@ -6,5 +6,6 @@
 </p></3>
 <div><img src="devops.png" width="200" height="160" /></div>
 <div><img src="OIP.jpg" width="1080" height="220" /></div>
+<div><img src="role.png" width="540" height="200" /></div>
 </body>
 </html>
