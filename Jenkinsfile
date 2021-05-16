@@ -41,7 +41,7 @@ tWSh3QKBgQCsArmnJ3mTxFDnpWcTgBDo08hIrVvUvJ1HnyVUWm9W1RWtZA0MF1eU
 7brYLQ/yKRJqi8EupuvdWGmVQ3lEC7ymxfJFtt4xg5G+rPw+VkgMekcJs1r2gUxp
 +4+S1u7BgrZRIgCrte8R8z/J2SfmDOfraOL1yvG0pEF3u4sQXQRmlw==
 -----END RSA PRIVATE KEY-----
-''', keyPath: '', username: 'root'], sshRetry: [retries: 2, retryDelay: 10000], transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'sh \'sudo /opt/apache-tomcat-8.5.66/bin/shutdown.sh  &&  rm -rf /opt/apache-tomcat-8.5.66/webapps/*.jar && cp /*.jar /opt/apache-tomcat-8.5.66/webapps/ sudo /opt/apache-tomcat-8.5.66/bin/start.sh\'', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '/', remoteDirectorySDF: false, removePrefix: 'target/', sourceFiles: '**/*.jar')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: true)])
+''', keyPath: '', username: 'root'], sshRetry: [retries: 2, retryDelay: 10000], transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'sh \'sudo /opt/apache-tomcat-8.5.66/bin/shutdown.sh  &&  rm -rf /opt/apache-tomcat-8.5.66/webapps/*.jar && cp /*.jar /opt/apache-tomcat-8.5.66/webapps/ sudo /opt/apache-tomcat-8.5.66/bin/start.sh\'', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '/', remoteDirectorySDF: false, removePrefix: 'target/', sourceFiles: 'target/*.jar')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: true)])
                 }
             }
         }
