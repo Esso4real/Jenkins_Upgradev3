@@ -43,12 +43,8 @@ tWSh3QKBgQCsArmnJ3mTxFDnpWcTgBDo08hIrVvUvJ1HnyVUWm9W1RWtZA0MF1eU
 -----END RSA PRIVATE KEY-----
 ''', keyPath: '', username: 'root'], sshRetry: [retries: 2, retryDelay: 10000], transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'sudo /opt/apache-tomcat-8.5.66/bin/shutdown.sh  &&  rm -rf /opt/apache-tomcat-8.5.66/webapps/single-module-project.jar && cp /tmp/single-module-project.jar /opt/apache-tomcat-8.5.66/webapps/ sudo /opt/apache-tomcat-8.5.66/bin/start.sh', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '/tmp', remoteDirectorySDF: false, removePrefix: 'target/', sourceFiles: 'target/single-module-project.jar')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: true)])
 
-        stage('DeployToProduction') {   
-             steps {
-        
-        sshPublisher(publishers: [sshPublisherDesc(configName: 'PRODUCTION', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'sudo /opt/apache-tomcat-8.5.66/bin/shutdown.sh  &&  rm -rf /opt/apache-tomcat-8.5.66/webapps/single-module-project.jar && cp /tmp/single-module-project.jar /opt/apache-tomcat-8.5.66/webapps/ sudo /opt/apache-tomcat-8.5.66/bin/start.sh', remoteDirectory: '/tmp', removePrefix: 'target/', sourceFiles: 'target/single-module-project.jar')])])
+
                 }
             }
         }
-   } 
-  
+    }
