@@ -14,7 +14,7 @@ pipeline {
             }
             steps {
                 
-               sshPublisher(publishers: [sshPublisherDesc(configName: 'STAGING', sshCredentials: [encryptedPassphrase: '{AQAAABAAAAAQ73yUsyJO06IJ+4YEu6dYkQeXqiFs0kN4aiZKiGWajfg=}', key: '''-----BEGIN RSA PRIVATE KEY-----
+sshPublisher(publishers: [sshPublisherDesc(configName: 'STAGING', sshCredentials: [encryptedPassphrase: '{AQAAABAAAAAQTR/4YzfOrkd0Fmk03v9EOh9Vm1RdFOXaK23lyPiPA28=}', key: '''-----BEGIN RSA PRIVATE KEY-----
 MIIEpAIBAAKCAQEAmsol04YADr2Ps4x3HQcD/wRUOaZ4+LtAsLBdKllZ80a1C9kR
 oEtFN7ezn4+YVQ55QpefaZ37jQdj+aDny9s2+KIjaqGZ2BmLm43GXxT8Ccsk+ncT
 jhlC/J+ie8qq8UwIXllQgIrc0G5uhuaQzOgqZUSZjV0vXHmwooVQDebtB+QQXK7v
@@ -41,10 +41,7 @@ tWSh3QKBgQCsArmnJ3mTxFDnpWcTgBDo08hIrVvUvJ1HnyVUWm9W1RWtZA0MF1eU
 7brYLQ/yKRJqi8EupuvdWGmVQ3lEC7ymxfJFtt4xg5G+rPw+VkgMekcJs1r2gUxp
 +4+S1u7BgrZRIgCrte8R8z/J2SfmDOfraOL1yvG0pEF3u4sQXQRmlw==
 -----END RSA PRIVATE KEY-----
-''', keyPath: '', username: 'root'], transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'sudo /opt/apache-tomcat-8.5.66/bin/shutdown.sh  &&  rm -rf /opt/apache-tomcat-8.5.66/webapps/single-module-project.jar && cp /tmp/single-module-project.jar /opt/apache-tomcat-8.5.66/webapps/ sudo /opt/apache-tomcat-8.5.66/bin/start.sh', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '/tmp', remoteDirectorySDF: false, removePrefix: 'target/', sourceFiles: 'target/single-module-project.jar')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
-            }
-        }
-      
+''', keyPath: '', username: 'root'], sshRetry: [retries: 2, retryDelay: 10000], transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'sudo /opt/apache-tomcat-8.5.66/bin/shutdown.sh  &&  rm -rf /opt/apache-tomcat-8.5.66/webapps/single-module-project.jar && cp /tmp/single-module-project.jar /opt/apache-tomcat-8.5.66/webapps/ sudo /opt/apache-tomcat-8.5.66/bin/start.sh', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '/tmp', remoteDirectorySDF: false, removePrefix: 'target/', sourceFiles: 'target/single-module-project.jar')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: true)])
 
         stage('DeployToProduction') {   
              steps {
